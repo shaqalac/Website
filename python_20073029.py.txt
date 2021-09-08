@@ -1,0 +1,225 @@
+import random
+
+
+def welcome():
+	print (" ***** WELCOME TO MASTERMIND ***** ")
+	# this welcome message is printed when the partcipant starts the game
+	print("""HOW TO PLAY:
+The computer will select an order of 4 pegs randomly, each peg consist of any of the five colours which is orange, blue, violet, pink and red.
+It is plausible for one colour to appear more than once in this sequence.
+Example, the colour orange could be the first peg, as well as the third peg.
+Once you have made an assumption of the pegs order, you will receive a score of how many correct matches and how many near matches
+you have made, in the form of ECEP and ECMP.
+ECEP  means you have a correct match (Exact Colour and in the Exact Place) and
+ECMP means you have a close match (Exact Colour but in the Mistaken Place).
+The goal of the game is for the partcipant to guess the correct order of the colours in as little attempts possible.""")
+	print('''
+Participant INSTRUCTIONS:
+To make an educated guess on the order of the colours, you just have to type the name of the colour or
+just the initial of the colour, on the same line, which are simply seperated by a space.
+Once entered, the participant will proceed to be evaluated and a response will be given.
+''')
+	
+	print("The colours that must be chosen are: orange(o), blue(b), pink(p), violet(v) and red(r)")
+
+
+	
+
+# these are support variables:
+colours = ["orange", "blue", "pink", "violet", "red",]  # this is the list of colours that will be randomly generated in "TheCode"
+AvailableInputs = ["orange", "o", "blue", "b", "pink", "p", "violet", "v", "red", "r",]
+# this is applied to inspect the inputs of the participant. The colours are all available inputs that the participant can insert.
+guesses = []  # this is applied to cache the input history of the partcipant.
+pegs = []  # this is to cache the output of the guesses done by the partcipant [Exact color in theexact position(ECEP) - Exact color in the mistaken position (ECMP)]
+OperatorInput = []  # this is a temporary operator input used to inspect if the participant inputs are in "AvailableInputs" and then cache in "guesses"
+TheCode = []
+turn = 0
+games = 0  # this is to show the total number of games played by the partcipant to be used for their final records.
+TotalTurns = 0  #this is to accumulate the total number of turns to be used for the final records. .
+wins = 0  # this is to accumulate the participant total number of wins in the final records.
+
+# this function will print the history of guesses the partcipant made in the game.
+def History():
+	global guesses
+	global pegs
+	global turn
+	header = ["Guess", "", "", "", "", "ECEP", "ECMP"]
+	GuessNumber = []
+	first = []
+	second = []
+	third = []
+	fourth = []
+	ECEP_pegs = []
+	ECMP_pegs = []
+	#the support list is made to design the table that the partcipant can see while playing the game.
+	for x in range(1, turn):
+		g = 4 * x - 4  #indication of guesses
+		p = 2 * x - 2  #indication of pegs
+		GuessNumber.append(x)
+		first.append(guesses[g])  # first component of every set of four guesses the participant makes
+		second.append(guesses[g + 1])  # second component of every set of four guesses the participant makes
+		third.append(guesses[g + 2])  # third component of every set of four guesses the participant makes
+		fourth.append(guesses[g + 3])  # fourth component of every set of four guesses the participant makes
+		ECEP_pegs.append(pegs[p])  # first component of every set of two pegs to indicate to the participant if they guessed the code correctly or incorrectly
+		ECMP_pegs.append(pegs[p + 1])  # second component of every set of two pegs to indicate to the participant if they guessed the code correctly or incorrectly
+	# this list contains every component of the table in order 
+	data = [header] + list(zip(GuessNumber, first, second, third, fourth, ECEP_pegs, ECMP_pegs))
+	# this is the structure of the table that the partcipant is allowed to see
+	for i, d in enumerate(data):
+		line = "| ".join(str(x).ljust(7) for x in d)
+		print(line)
+		if i == 0:
+			# this is done to create a partition between the header and the data.
+			print("- " * (int(len(line) / 2) + 1))
+	# separation in the end of the table
+	print("-" * len(line))
+
+# this function provides the random coding of colours that the participant needs to solve.
+def GenerateTheCode():
+	global TheCode
+	a = colours[random.randrange(0, 5)]
+	b = colours[random.randrange(0, 5)]
+	c = colours[random.randrange(0, 5)]
+	d = colours[random.randrange(0, 5)]
+	TheCode = [a, b, c, d]
+	#TheCode will be generated.
+
+# the operator input must be inserted in the form of a list.
+# this function will allow the operator input to be saved into the list of guesses to show the partcipant the history of their guesses.
+# this function will cause the operator input to be converted to readable input to be used for future references which can be found in ("SolutionComparison()")
+def InputGuess():
+	global guesses
+	global OperatorInput
+	for index, word in enumerate(OperatorInput):
+		if word == "orange" or word == "o":
+			guesses.append("orange")
+			OperatorInput[index] = "orange"
+		elif word == "blue" or word == "b":
+			guesses.append("blue")
+			OperatorInput[index] = "blue"
+		elif word == "pink" or word == "p":
+			guesses.append("pink")
+			OperatorInput[index] = "pink"
+		elif word == "violet" or word == "v":
+			guesses.append("violet")
+			OperatorInput[index] = "violet"
+		else:
+			guesses.append("red")
+			OperatorInput[index] = "red"
+
+# the function will provide an error message if the partcipant inputs less or more than 4 colours .
+# if the participant inputs an invalid option, they can type the input again without losing a turn.
+def Operatorguess():
+	while True:  # the prgram will repeatedly ask until it an input from the "AvailableInputs" list is received.
+		try:  # this will check if the number of inputs are exactly 4. If there is more or less than 4, "except" will occur.
+			global OperatorInput  # the global input is required for another function which is ("InputGuess()")
+			OperatorInput = [0, 0, 0, 0]  # reset the operator input
+			var = 0  # this is a support variable that will increase if that one of the values that the partcipant inputs are not inserted in "AvailableInputs"
+			OperatorInput[0], OperatorInput[1], OperatorInput[2], OperatorInput[3], = map(str, input(
+				"Insert the colours with a space in between: ").lower().split())
+			for i in OperatorInput:  # this will inspect if the inputs inserted by the partcipant available in "AvailableInputs"
+				if i not in AvailableInputs:  # if input is not available, support function will be increased
+					var += 1
+			if var == 0:  # if zero, no errors found
+				return OperatorInput  # the "OperatorInput" returns 
+			if var == 0:
+				break  # when while function goes to break, it means all inputs have been inserted correctly
+			else:
+				print("One or more of the values inserted are inaccurate. Please place your intended values again.")
+		except ValueError:
+			print(" Not the value available. Please place the values again.")
+
+
+# this function checks the solution and the input
+# it is compared with "OperatorInput" which will produces the result of the ECEP and ECMP pegs
+def SolutionComparison(OperatorInput,TheCode):
+	global pegs
+	global ECEP
+	ECEP = 0
+	ECMP = 0
+	CodeCopy = TheCode[:]  #  to ensure the following turns to not be changed, we require a copy of TheCode
+	OperatorCopy = OperatorInput[:]
+	# this is used to inspect for ECEP pegs
+	# to ensure the participant  does not receive a false ECMP pegs,the ECEP pegs are inspected first.
+	# if a specific colour is placed in the correct position, input will then changed in  "OperatorCopy" and "CodeCopy". 
+	# ... ECMP pegs are being inspected.
+	for index, input in enumerate(OperatorInput):
+		if input == CodeCopy[index]:
+			ECEP += 1
+			CodeCopy[index] = "inspect solution"
+			OperatorCopy[index] = "inspect operator input"
+	# now the ECMP pegs are checked
+	# similar to what was done with the ECEP pegs, if a specific colour is correct but occupies the wrong position, the colour will be changed in  "CodeCopy".
+	# this allows the ECMP pegs to show the correct data.
+	for index, input in enumerate(OperatorCopy):
+		for i, p in enumerate(CodeCopy):
+			if p == input:
+				ECMP += 1
+				CodeCopy[i] = "checked solution"
+				break
+	# utilization of solution
+	pegs.append(ECEP)
+	pegs.append(ECMP)
+
+# this will check if the partcipant has guessed the right colours.
+# if the partcipant has guessed the right colours, the game will end and sets turn = 300
+def StoreWins():
+	global ECEP
+	global turn
+	if ECEP == 4:
+		print("Congratulations, you are the Mastermind with ", turn, " turns!")
+		turn = 300  # end of game
+		replay()
+
+
+
+
+# After the game finishes, this function will ask the partcipant if they wish to start a new game.
+def replay():
+	global games
+	global turn
+	global TotalTurns
+	global wins
+	games += 1  # the games list will increase by one to observe the game last played 
+	if turn == 300:  # when the game is won, turn is considered as  turn == 300.
+		wins += 1
+	again = input("Do you wish to play again? y/n: ").lower().replace(" ", "")
+	if again == "y":
+		ResetGame()  # A new game will be created
+	else:
+		print("Thank you for Playing.Have a nice day")
+
+
+
+# this is the function that begins the game.
+# all of the other functions before this, are in this function.
+def ResetGame():
+	global turn
+	global guesses
+	global pegs
+	turn = 0
+	guesses =[]
+	pegs = []
+	# the game will begin here
+	while turn != 300:
+		turn += 1
+		if turn == 1:  # the first turn, "How to Play" and "Participant Instructions" will be  printed
+			welcome()
+			GenerateTheCode()  # the code will be generated here.
+			print("Start the game. Turn: 1")
+		elif turn > 1:
+			print("- . - . - . - . - . - . - . - . - . - . - . - . - . - . - . - . -")
+			print("")  # this will give a segregation between turns so that the partcipant can identify the table for the oncoming rounds.
+			print("Turn: ", turn)
+			History()
+		Operatorguess()
+		InputGuess()
+		SolutionComparison(OperatorInput, TheCode)
+		StoreWins()
+
+
+
+ResetGame()
+
+
+
