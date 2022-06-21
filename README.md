@@ -18,7 +18,8 @@ graph ={
     }
 <h4><em> These are the nodes and where they are comfortable to sit on thier left(clockwise)</em></h4>
 
-
+<br>
+<br>
 visited =[]
 queue =[]
 
