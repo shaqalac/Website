@@ -1,4 +1,14 @@
-<code>graph ={    
+#Example Site
+
+This is a sample readme file for our five people sitting in a table problem
+
+The code demonstrates the seating position depending on the peoples comfort sitting next to each other.
+
+Therefore assumptions on seating plan have been made prior to coding 
+
+
+<code>
+graph ={    
     
  'G1'   : [ 'G2'],
  'G2'   : [ 'G3'],
@@ -6,6 +16,7 @@
  'G4'  : [ 'G1'],
  'G5' :  [ 'G4'],
     }
+####<em> These are the nodes and where they are comfortable to sit on thier left(clockwise)</em>
 
 visited =[]
 queue =[]
@@ -40,7 +51,7 @@ for i in user_input:
         counted['People']+=1
    
 
-print(counted)</code>
-
+print(counted)'
+</code>
 
 
