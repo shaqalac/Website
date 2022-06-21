@@ -7,7 +7,7 @@ The code demonstrates the seating position depending on the peoples comfort sitt
 Therefore assumptions on seating plan have been made prior to coding 
 
 
-graph ={    
+*graph ={    
     
  'G1'   : [ 'G2'],
  'G2'   : [ 'G3'],
@@ -49,6 +49,6 @@ for i in user_input:
         counted['People']+=1
    
 
-print(counted)
+print(counted)*
 
 
