@@ -1,4 +1,4 @@
-'graph ={    
+<code>graph ={    
     
  'G1'   : [ 'G2'],
  'G2'   : [ 'G3'],
@@ -40,7 +40,7 @@ for i in user_input:
         counted['People']+=1
    
 
-print(counted)'
+print(counted)</code>
 
 
 
