@@ -1,4 +1,4 @@
-#Example Site
+<h1>Example Site> </h1>
 
 This is a sample readme file for our five people sitting in a table problem
 
@@ -16,10 +16,12 @@ graph ={
  'G4'  : [ 'G1'],
  'G5' :  [ 'G4'],
     }
-####<em> These are the nodes and where they are comfortable to sit on thier left(clockwise)</em>
+<h4><em> These are the nodes and where they are comfortable to sit on thier left(clockwise)</em></h4>
+
 
 visited =[]
 queue =[]
+
 
 def bfs (visted,graph,node):
     
@@ -53,5 +55,8 @@ for i in user_input:
 
 print(counted)'
 </code>
+
+
+
 
 
