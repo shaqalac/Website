@@ -19,17 +19,6 @@ graph ={
 
     }
 
-# This is to demonstate implemntation if it were a different number of people in the table.
-# For this example, we have 4 people which are G1,G2,G3 and G4
- graph ={
-  'G1'   : [ 'G2'],
-#  'G2'   : [ 'G3'],
-#  'G3'  : [ 'G4'],
-#  'G4'  : [ 'G1'],
-# 
-#     }
-
-
 
 
 
