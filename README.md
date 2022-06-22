@@ -72,6 +72,7 @@ print(counted)'
 
 
 <h2>Explanaion and how to implement</h2>
+<em> These are the nodes(people) and who they are comfortable to sit on thier left(clockwise). This code has to be here to describe the group of people</em>
 <h4><code>    
  'G1'   : [ 'G2'],
  'G2'   : [ 'G3'],
@@ -81,7 +82,7 @@ print(counted)'
 
 
     }
- </code><em> These are the nodes(people) and who they are comfortable to sit on thier left(clockwise). This code has to be here to describe the group of people</em></h4>
+ </code></h4>
 
 
 
