@@ -71,7 +71,7 @@ print(counted)
 </code>
 
 
-<h2>Explanaion and how to implement</h2>
+<h2>Explanation and how to implement</h2>
 <em> These are the nodes(people) and who they are comfortable to sit on thier left(clockwise). This code has to be here to describe the group of people</em>
 <h4><code>    
  'G1'   : [ 'G2'],
@@ -84,12 +84,12 @@ print(counted)
     }
  </code></h4>
 
-
+<hr>
 
 <h4><code>
 visited =[]<em> This function will list the visited nodes</em>
 queue =[]<em> This will initiate a queue
-</code>
+    </code> </h4>
 <hr>
 
 <em> This is the breadth first search first which will store the leaf node value first in visited and queue. For Example G1 will first be in visited[G1] and queue[G1]  </em>  
@@ -130,7 +130,8 @@ print("BFS for 5 people in a circle in clockwise starting from G1")
  The for loop will catch it and will count the amount of letters by using isalpha. The result will be printed then </em>
 
 
-<h4><code>user_input = input("Type the number of people in the table :   ")
+<h4><code>
+user_input = input("Type the number of people in the table :   ")
 counted={'People':0}
 
 for i in user_input:
