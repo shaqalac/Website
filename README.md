@@ -117,16 +117,17 @@ def bfs (visted,graph,node):
      
      </code></h4>
  <hr>             
-<em> Print function is to print the query. Bfs function is to call the function by placing the leaf node </em>
+ Print function is to print the query. Bfs function is to call the function by placing the leaf node 
     
  <h4><code>   
 print("BFS for 5 people in a circle in clockwise starting from G1")
 
- bfs(visited,graph,'G1')</h4></code>
+ bfs(visited,graph,'G1')
+</h4></code>
 
 <hr>
-<em> This is a user input, which will be prompted when the program runs. The user will key in the number of people in the table.
-     The for loop will catch it and will count the amount of letters by using isalpha. The result will be printed then </em>
+ This is a user input, which will be prompted when the program runs. The user will key in the number of people in the table.
+ The for loop will catch it and will count the amount of letters by using isalpha. The result will be printed then 
 <h4><code>user_input = input("Type the number of people in the table :   ")
 counted={'People':0}
 
