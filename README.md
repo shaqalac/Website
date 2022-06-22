@@ -86,10 +86,12 @@ print(counted)
 
 <hr>
 
+<em> Visited function will list visited nodes and Queue function will initiate queue</em>
 <h4><code>
-visited =[]<em> This function will list the visited nodes</em>
-queue =[]<em> This will initiate a queue
-    </code> </h4>
+
+visited =[]
+queue =[]
+</code> </h4>
 <hr>
 
 <em> This is the breadth first search first which will store the leaf node value first in visited and queue. For Example G1 will first be in visited[G1] and queue[G1]  </em>  
