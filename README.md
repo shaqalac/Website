@@ -122,7 +122,7 @@ for neighbour in graph[s]:
  </code></h4>
  <hr>             
  
-<em> This while loop will check if the queue is empty. If it is not empty it will pop the value to make room for neighbour nodes. Print function will print visited nodes</em>
+<em> This print function will print the query and the bfs function will be called when placed the node</em>
     
 <h4><code>   
 print("BFS for 5 people in a circle in clockwise starting from G1")
