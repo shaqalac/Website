@@ -117,7 +117,7 @@ def bfs (visted,graph,node):
      
      </code></h4>
  <hr>             
-<em> Print function is to print the query. Bfs function is to call the function by placing the leaf node
+<em> Print function is to print the query. Bfs function is to call the function by placing the leaf node </em>
     
  <h4><code>   
 print("BFS for 5 people in a circle in clockwise starting from G1")
