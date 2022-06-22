@@ -90,7 +90,7 @@ print(counted)
 visited =[]<em> This function will list the visited nodes</em>
 queue =[]<em> This will initiate a queue
 </code>
-
+<hr>
 
 <em> This is the breadth first search first which will store the leaf node value first in visited and queue. For Example G1 will first be in visited[G1] and queue[G1]  </em>  
 <h4><code>
@@ -107,7 +107,7 @@ def bfs (visted,graph,node):
   s=queue.pop(0)
   print(s,end= "  ")
     </code></h4>
-
+<hr>
 <em> For loop is to place unvisited neighbours nodes in the queue</em>
 
  <h4><code>for neighbour in graph[s]:
@@ -116,7 +116,7 @@ def bfs (visted,graph,node):
               queue.append(neighbour)
      
      </code></h4>
-              
+ <hr>             
 <em> Print function is to print the query. Bfs function is to call the function by placing the leaf node
     
  <h4><code>   
@@ -124,7 +124,7 @@ print("BFS for 5 people in a circle in clockwise starting from G1")
 
  bfs(visited,graph,'G1')</h4></code>
 
-
+<hr>
 <em> This is a user input, which will be prompted when the program runs. The user will key in the number of people in the table.
      The for loop will catch it and will count the amount of letters by using isalpha. The result will be printed then </em>
 <h4><code>user_input = input("Type the number of people in the table :   ")
