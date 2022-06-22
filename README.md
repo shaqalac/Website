@@ -1,4 +1,4 @@
-<h1>Example Site> </h1>
+<h1>Seating arrangement for 5 people in a circle </h1>
 
 This is a sample readme file for our five people sitting in a table problem
 
@@ -133,7 +133,8 @@ for i in user_input:
         counted['People']+=1    
     print(counted)
     </code></h4>
-
+<hr>
+<hr>
 
 #This is to demonstrate another implementation if the user wishes to arrange any other number of people in their seating plan
 #For this example we will be using 4 people and we will remove G5 from the list. This will leave us with G1,G2,G3 and G4
