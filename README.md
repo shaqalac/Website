@@ -146,13 +146,12 @@ for i in user_input:
     </code></h4>
 
 
-# This is to demonstate implemntation if it were a different number of people in the table.
-# For this example, we have 4 people which are G1,G2,G3 and G4
-# graph ={
-#  'G1'   : ['G2'],
-#  'G2'   : [ 'G3'],
-#  'G3'  : [ 'G4'],
-#  'G4'  : [ 'G1'],
-# 
-#     }
+#This is to demonstrate another implementation if the user wishes to arrange any other number of people in their seating plan
+#For this example we will be using 4 people and we will remove G5 from the list. This will leave us with G1,G2,G3 and G4
+
+graph ={
+'G1' :['G2'],
+'G2' :['G3'],
+'G3' :['G4'],
+'G4' :['G1'],
 
