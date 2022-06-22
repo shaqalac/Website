@@ -139,10 +139,10 @@ for i in user_input:
 <h2>This is to demonstrate another implementation if the user wishes to arrange any other number of people in their seating plan
 For this example we will be using 4 people and we will remove G5 from the list. This will leave us with G1,G2,G3 and G4</h2>
 
-<h3><code>graph ={
+<h3><code>
+graph ={
 'G1' :['G2'],
 'G2' :['G3'],
 'G3' :['G4'],
 'G4' :['G1'],
 
-    </code></h3>
