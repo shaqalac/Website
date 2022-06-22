@@ -99,7 +99,7 @@ def bfs (visted,graph,node):
   visited.append(node)  
   queue.append(node)
     </code></h4>
-    
+<hr>    
 
 <em> This while loop will check if the queue is empty. If it is not empty it will pop the value to make room for neighbour nodes. Print function will print visited nodes</em>
 <h4><code>
