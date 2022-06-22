@@ -110,22 +110,25 @@ def bfs (visted,graph,node):
   print(s,end= "  ")
     </code></h4>
 <hr>
+
 <em> For loop is to place unvisited neighbours nodes in the queue</em>
 
- <h4><code>for neighbour in graph[s]:
+ <h4><code>
+for neighbour in graph[s]:
           if neighbour not in visited :
               visited.append(neighbour)
               queue.append(neighbour)
      
-     </code></h4>
+ </code></h4>
  <hr>             
- <em>Print function is to print the query. Bfs function is to call the function by placing the leaf node </em>
+ 
+<em> This while loop will check if the queue is empty. If it is not empty it will pop the value to make room for neighbour nodes. Print function will print visited nodes</em>
     
- <h4><code>   
+<h4><code>   
 print("BFS for 5 people in a circle in clockwise starting from G1")
 
  bfs(visited,graph,'G1')
-     </code></h4>
+  </code></h4>
 
 <hr>
  <em>This is a user input, which will be prompted when the program runs. The user will key in the number of people in the table.
