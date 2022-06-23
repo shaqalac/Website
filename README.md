@@ -141,6 +141,8 @@ for child in graph[s]:
 <h4><code>
 node =input("Please input leaf node: ") 
 goal_state =input("Please input goal :  ")  
+</code></h4>
+<hr>
 
 
 <em> This print function will print the query and the bfs function will be called once node and goal_state is inputed by the user. Print function for goal_state is placed because the solution variable will only return the visited nodes before the goal_state. This is why print function for goal_state is needed to complete the program</em>
