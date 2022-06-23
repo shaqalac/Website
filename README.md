@@ -8,16 +8,14 @@ Therefore assumptions on seating plan have been made prior to coding
 
 
 <code>
-graph ={    
-    
- 'G1'   : [ 'G2'],
+graph ={
+  'G1'   : [ 'G2'],
  'G2'   : [ 'G3'],
  'G3'  : [ 'G5'],
  'G4'  : [ 'G1'],
  'G5' :  [ 'G4'],
+   }
 
-
-    }
 
 
 
@@ -25,28 +23,43 @@ graph ={
 visited =[]
 queue =[]
 
+def bfs (visted,graph,node,goal_state):
+  
+ solution=[]
+ visited.append(node)  
+ queue.append(node)
 
-def bfs (visted,graph,node):
-    
-  visited.append(node)  
-  queue.append(node)
-  
-  
-  while queue:
+ while queue:
       s=queue.pop(0)
+      
       print(s,end= "  ")
       
       
       for neighbour in graph[s]:
           if neighbour not in visited :
+        
               visited.append(neighbour)
               queue.append(neighbour)
-              
-print("BFS for 5 people in a circle in clockwise starting from G1")
+          
+          
+      for child in graph[s]:  
+       
+         if child== goal_state :
+         
+          solution =child
+          visited.append(child)
+          queue.append(child)      
+          return solution
+         
+         
+node =input("Please input leaf node: ") 
+goal_state =input("Please input goal :  ")  
+            
 
-bfs(visited,graph,'G1')
+print("Breadth first search for  people sitting in a circle following clockwise")
 
-
+bfs(visited,graph,node, goal_state) 
+print(goal_state)
 
 user_input = input("Type the number of people in the table :   ")
 counted={'People':0}
@@ -75,7 +88,7 @@ print(counted)
 
 <hr>
 
-<em> Visited function will list visited nodes and Queue function will initiate queue</em>
+<em> Visited variable will list visited nodes and Queue variable will initiate queue. </em>
 <h4><code>
 
 visited =[]
@@ -83,10 +96,11 @@ queue =[]
 </code> </h4>
 <hr>
 
-<em> This is the breadth first search first which will store the leaf node value first in visited and queue. For Example G1 will first be in visited[G1] and queue[G1]  </em>  
+<em> This is the breadth first search first which will store the leaf node value first in visited and queue. For Example G1 will first be in visited[G1] and queue[G1]. Solution variable will trigger and store solution for goal_state  </em>  
 <h4><code>
 def bfs (visted,graph,node):
-    
+ 
+  solution=[]  
   visited.append(node)  
   queue.append(node)
     </code></h4>
@@ -111,12 +125,32 @@ for neighbour in graph[s]:
  </code></h4>
  <hr>             
  
-<em> This print function will print the query and the bfs function will be called when placed the node</em>
+ <em> Similar to for loop for neighbour, the for loop for child acts similtaneously to the neighbour and will be trigger once it reaches the goal state</em>
+ <h4><code>
+for child in graph[s]:  
+       
+         if child== goal_state :
+         
+          solution =child
+          visited.append(child)
+          queue.append(child)      
+          return solution
+ </code></h4>
+ <hr>
+ <em> This input is for user to input the leaf node and goal node.</em>
+<h4><code>
+node =input("Please input leaf node: ") 
+goal_state =input("Please input goal :  ")  
+
+
+<em> This print function will print the query and the bfs function will be called once node and goal_state is inputed by the user. Print function for goal_state is placed because the solution variable will only return the visited nodes before the goal_state. This is why print function for goal_state is needed to complete the program</em>
     
 <h4><code>   
-print("BFS for 5 people in a circle in clockwise starting from G1")
+print("Breadth first search for  people sitting in a circle following clockwise")
 
- bfs(visited,graph,'G1')
+bfs(visited,graph,node, goal_state) 
+print(goal_state)
+
   </code></h4>
 
 <hr>
@@ -135,14 +169,4 @@ for i in user_input:
     </code></h4>
 <hr>
 <hr>
-
-<h2>This is to demonstrate another implementation if the user wishes to arrange any other number of people in their seating plan
-For this example we will be using 4 people and we will remove G5 from the list. This will leave us with G1,G2,G3 and G4</h2>
-
-<h3><code>
-graph ={
-'G1' :['G2'],
-'G2' :['G3'],
-'G3' :['G4'],
-'G4' :['G1'],
 
